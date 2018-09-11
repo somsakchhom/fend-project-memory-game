@@ -36,3 +36,29 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+ const deck = document.querySelector('.deck');
+
+ let toggledCards = [];
+
+
+ deck.addEventListener('click', event => {
+     const clickTarget = event.target;
+     if (clickTarget.classList.contains('card') && toggledCards.length < 2) {
+        toggleCard(clickTarget);
+        addToggleCard(clickTarget);
+        if (toggledCards.length ===2) {
+            console.log('2 cards!');
+        } 
+     }
+ });
+
+ function toggleCard(clickTarget) {
+    clickTarget.classList.toggle('open');
+    clickTarget.classList.toggle('show');
+}
+
+function addToggleCard(clickTarget) {
+    toggledCards.push(clickTarget);
+    console.log(toggledCards);
+}
