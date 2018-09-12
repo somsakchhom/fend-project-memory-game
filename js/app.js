@@ -48,7 +48,7 @@ function shuffle(array) {
         toggleCard(clickTarget);
         addToggleCard(clickTarget);
         if (toggledCards.length === 2) {
-            checkForMatch();
+            checkForMatch(clickTarget);
         }
      }
  });
