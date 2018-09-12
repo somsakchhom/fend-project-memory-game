@@ -47,18 +47,35 @@ function shuffle(array) {
      if (clickTarget.classList.contains('card') && toggledCards.length < 2) {
         toggleCard(clickTarget);
         addToggleCard(clickTarget);
-        if (toggledCards.length ===2) {
-            console.log('2 cards!');
-        } 
+        if (toggledCards.length === 2) {
+            checkForMatch();
+        }
      }
  });
 
- function toggleCard(clickTarget) {
-    clickTarget.classList.toggle('open');
-    clickTarget.classList.toggle('show');
+ function toggleCard(card) {
+    card.classList.toggle('open');
+    card.classList.toggle('show');
 }
 
 function addToggleCard(clickTarget) {
     toggledCards.push(clickTarget);
     console.log(toggledCards);
+}
+
+function checkForMatch() {
+    if (
+        toggledCards[0].firstElementChild.className ===
+        toggledCards[1].firstElementChild.className
+    ) {
+        toggledCards[0].classList.toggle('match')
+        toggledCards[1].classList.toggle('match')
+        toggledCards = [];
+    } else {
+        setTimeout(() => {
+            toggleCard(toggledCards[0]);
+            toggleCard(toggledCards[1]);
+            toggledCards = [];
+        }, 1000);
+    }
 }
