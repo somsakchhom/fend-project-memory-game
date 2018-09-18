@@ -41,6 +41,14 @@ function shuffle(array) {
 
  let toggledCards = [];
 
+ function shuffleDeck () {
+    const cardsToShuffle = Array.from(document.querySelectorAll('.deck li'));
+    console.log('boyy cards to shuffle?', cardsToShuffle);
+    const shuffledCards = shuffle(cardsToShuffle);
+    console.log('itz a Meee, Shuffled CARDS!!', shuffledCards);
+ }
+ shuffleDeck();
+
 
  deck.addEventListener('click', event => {
      const clickTarget = event.target;
