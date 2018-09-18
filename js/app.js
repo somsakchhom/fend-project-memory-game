@@ -44,14 +44,24 @@ function shuffle(array) {
 
  deck.addEventListener('click', event => {
      const clickTarget = event.target;
-     if (clickTarget.classList.contains('card') && toggledCards.length < 2) {
-        toggleCard(clickTarget);
-        addToggleCard(clickTarget);
-        if (toggledCards.length === 2) {
+     if (isClickValid(clickTarget))
+        { 
+         toggleCard(clickTarget);  
+         addToggleCard(clickTarget);
+         if (toggledCards.length === 2) {
             checkForMatch(clickTarget);
-        }
-     }
+         }
+    }
  });
+
+ function isClickValid(clickTarget) {
+     return (
+        clickTarget.classList.contains('card') && 
+        !clickTarget.classList.contains('match') && 
+        toggledCards.length < 2 && 
+        !toggledCards.includes(clickTarget)
+     )
+ };
 
  function toggleCard(card) {
     card.classList.toggle('open');
@@ -60,7 +70,6 @@ function shuffle(array) {
 
 function addToggleCard(clickTarget) {
     toggledCards.push(clickTarget);
-    console.log(toggledCards);
 }
 
 function checkForMatch() {
