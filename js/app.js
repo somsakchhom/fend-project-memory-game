@@ -41,6 +41,14 @@ function shuffle(array) {
 
  let toggledCards = [];
 
+ let moves = 0;
+
+ function addMove() {
+     moves++;
+     const movesText = document.querySelector('.moves');
+     movesText.innerHTML = moves;
+ }
+
  function shuffleDeck () {
     const cardsToShuffle = Array.from(document.querySelectorAll('.deck li'));
     const shuffledCards = shuffle(cardsToShuffle);
@@ -59,6 +67,7 @@ function shuffle(array) {
          addToggleCard(clickTarget);
          if (toggledCards.length === 2) {
             checkForMatch(clickTarget);
+            addMove();
          }
     }
  });
