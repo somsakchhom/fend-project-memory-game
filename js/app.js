@@ -43,6 +43,23 @@ function shuffle(array) {
 
  let moves = 0;
 
+ function checkScore() {
+     if (moves === 5 || moves ===10)
+     {
+         hideStar();
+     }
+ }
+
+ function hideStar() {
+     const starList = document.querySelectorAll('.stars li');
+     for (star of starList){
+         if (star.style.display !== 'none') {
+             star.style.display = 'none';
+             break;
+         }
+     }
+ }
+
  function addMove() {
      moves++;
      const movesText = document.querySelector('.moves');
@@ -68,6 +85,7 @@ function shuffle(array) {
          if (toggledCards.length === 2) {
             checkForMatch(clickTarget);
             addMove();
+            checkScore();
          }
     }
  });
