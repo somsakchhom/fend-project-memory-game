@@ -43,9 +43,10 @@ function shuffle(array) {
 
  function shuffleDeck () {
     const cardsToShuffle = Array.from(document.querySelectorAll('.deck li'));
-    console.log('boyy cards to shuffle?', cardsToShuffle);
     const shuffledCards = shuffle(cardsToShuffle);
-    console.log('itz a Meee, Shuffled CARDS!!', shuffledCards);
+    for (card of shuffledCards) {
+        deck.appendChild(card);
+    }
  }
  shuffleDeck();
 
