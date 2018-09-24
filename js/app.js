@@ -38,17 +38,23 @@ function shuffle(array) {
  */
 
 
-
+//Globals
  const cardDeck = document.querySelector('.deck');
  let toggledCards = [];
  let moves = 0;
  let clockOff = true;
  let time = 0;
+ let clockId;
+
+ function stopClock() {
+     clearInterval(clockId);
+ }
  
  function startClock() {
-     let clockId = setInterval(() => {
+     clockId = setInterval(function() {
          time++;
          displayTime();
+         console.log(time);
         }, 1000);
  }
 
