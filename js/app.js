@@ -37,14 +37,36 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
- const deck = document.querySelector('.deck');
 
+
+ const cardDeck = document.querySelector('.deck');
  let toggledCards = [];
-
  let moves = 0;
+ let clockOff = true;
+ let time = 0;
+ 
+ function startClock() {
+     let clockId = setInterval(() => {
+         time++;
+         displayTime();
+        }, 1000);
+ }
+
+ function displayTime() {
+     const minutes = Math.floor(time / 60);
+     const seconds = time % 60;
+     const clock = document.querySelector('.clock');
+     clock.innerHTML = time;
+     if (seconds < 10) {
+        clock.innerHTML = minutes +':0'+ seconds;
+     } else {
+        clock.innerHTML = minutes +':'+ seconds;
+     }
+ }
+
 
  function checkScore() {
-     if (moves === 5 || moves ===10)
+     if (moves === 5 || moves === 10)
      {
          hideStar();
      }
@@ -52,7 +74,7 @@ function shuffle(array) {
 
  function hideStar() {
      const starList = document.querySelectorAll('.stars li');
-     for (star of starList){
+     for (let star of starList){
          if (star.style.display !== 'none') {
              star.style.display = 'none';
              break;
@@ -67,19 +89,21 @@ function shuffle(array) {
  }
 
  function shuffleDeck () {
-    const cardsToShuffle = Array.from(document.querySelectorAll('.deck li'));
+    const cardsToShuffle = Array.from(document.querySelectorAll('.card'));
     const shuffledCards = shuffle(cardsToShuffle);
-    for (card of shuffledCards) {
-        deck.appendChild(card);
+    for ( let card of shuffledCards) {
+        cardDeck.appendChild(card);
     }
  }
  shuffleDeck();
 
-
- deck.addEventListener('click', event => {
+ cardDeck.addEventListener('click', event => {
      const clickTarget = event.target;
-     if (isClickValid(clickTarget))
-        { 
+     if (isClickValid(clickTarget)) {
+        if(clockOff) {
+          startClock();
+          clockOff = false;
+        }
          toggleCard(clickTarget);  
          addToggleCard(clickTarget);
          if (toggledCards.length === 2) {
