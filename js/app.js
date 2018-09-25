@@ -46,6 +46,13 @@ function shuffle(array) {
  let time = 0;
  let clockId;
 
+ function toggleModal() {
+     const modal = document.querySelector('.modal_background');
+     modal.classList.toggle('hide');
+ }
+ toggleModal();
+//  toggleModal();
+
  function stopClock() {
      clearInterval(clockId);
  }
@@ -54,7 +61,6 @@ function shuffle(array) {
      clockId = setInterval(function() {
          time++;
          displayTime();
-         console.log(time);
         }, 1000);
  }
 
