@@ -7,14 +7,13 @@
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+Flip over each card by clicking on them. This game will rate you on how fast you can complete with the least amount of attempts. 
 
-To get started, open `js/app.js` and start building out the app's functionality
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+## Known Bugs
 
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+Upon completion of the game, clicking replay will reset the game. After clicking on the first card a pop up will occur.This will happen after each card. To continue playing, refresh your browser. 
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+
+
