@@ -6,7 +6,7 @@ A simple game that you must attempt to match each pair of cards. Upon completion
 
 Flip over each card by clicking on them. If two cards do not match then they will turn over. Matched cards will remain face up. The game ends when all matched cards are found. Your score will be determined by how fast you complete the game. 
 
-## Dependecies
+## Dependencies
 
 - [Font Awesome](https://fontawesome.com/)
 - [BootStrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
