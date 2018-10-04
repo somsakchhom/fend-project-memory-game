@@ -1,3 +1,5 @@
+"use strict";
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -41,27 +43,16 @@ function shuffle(array) {
      resetGame();
      
  }
-
-// //  Modal tests
-//  time = 121;
-//  displayTime(); // 2:01
-//  moves = 16;
-//  checkScore(); // 2 stars
-
-//  toggleModal; // open modal
-
- //Write stats to modal
-//  writeModalStats();  
-
+ 
  document.querySelector('.restart').addEventListener('click', resetGame);
 
  
  document.querySelector('.replay').addEventListener('click', replayGame);
 
  function resetStars() {
-     stars = 0;
+     let stars = 0;
      const starList = document.querySelectorAll('.stars li');
-     for (star of starList) {
+     for (let star of starList) {
          star.style.display = 'inline';
      }
  }
@@ -72,6 +63,8 @@ function shuffle(array) {
  }
 
  function resetGame() {
+     toggledCards = [];
+     matched = 0;
      resetClockandTime();
      resetMoves();
      resetStars();
